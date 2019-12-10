@@ -38,3 +38,16 @@ function findTrainers(req, res) {
     }
   )
 }
+
+function findTrainer(req, res) {
+  clientModel.findTrainer(req.params.trainerName).then(
+    function(trainer) {
+      if(trainer.length === 0) {
+        console.log("Trainer Not Found");
+        res.send("Trainer Not Found");
+      } else {
+        res.send(trainer);
+      }
+    }
+  )
+}
