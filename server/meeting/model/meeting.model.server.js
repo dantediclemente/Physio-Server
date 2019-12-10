@@ -3,6 +3,7 @@ var meetingSchema = require('./meeting.schema.server.js');
 var Meeting = mongoose.model('Meeting', meetingSchema);
 Meeting.findMeeting = findMeeting;
 Meeting.findMeetingByClient = findMeetingByClient;
+Meeting.createMeeting = createMeeting;
 module.exports = Meeting;
 
 function findMeeting(meetingName) {
@@ -13,4 +14,9 @@ function findMeeting(meetingName) {
 function findMeetingByClient(clientEmail) {
   console.log("Client Email: " + clientEmail);
   return Meeting.find({"clientEmail": clientEmail});
+}
+
+function createMeeting(meeting) {
+  console.log("Meeting: " + meeting);
+  return Meeting.create(meeting);
 }

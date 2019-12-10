@@ -6,6 +6,7 @@ var cors = require('cors');
 var env = require('dotenv').config();
 var connectionString = process.env.DATABASE_URL + "physio";
 app.use(cors());
+app.use(express.json());
 console.log(connectionString)
 console.log("connecting with: " + connectionString);
 

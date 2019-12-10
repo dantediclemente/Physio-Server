@@ -3,6 +3,7 @@ var clientModel = require('../model/client.model.server');
 
 app.get('/api/clients', findClients);
 app.get('/api/client/:clientName', findClient);
+app.get('/api/trainers', findTrainers);
 
 function findClients(req, res) {
   clientModel.findClients().then(
@@ -20,6 +21,19 @@ function findClient(req, res) {
         res.send("Client Not Found");
       } else {
         res.send(client);
+      }
+    }
+  )
+}
+
+function findTrainers(req, res) {
+  clientModel.findTrainers().then(
+    function(trainers) {
+      if(trainers.length === 0) {
+        console.log("Trainers Not Found");
+        res.send("Trainers Not Found");
+      } else {
+        res.send(trainers);
       }
     }
   )

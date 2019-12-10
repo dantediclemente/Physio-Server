@@ -3,6 +3,7 @@ var meetingModel = require('../model/meeting.model.server');
 
 app.get('/api/meeting/:meetingName', findMeeting);
 app.get('/api/meetings/:clientEmail', findMeetingByClient);
+app.post('/api/meeting/post', createMeeting);
 
 function findMeeting(req, res) {
   meetingModel.findMeeting(req.params.meetingName).then(
@@ -30,4 +31,10 @@ function findMeetingByClient(req, res) {
       }
     }
   )
+}
+
+function createMeeting(req, res) {
+  var meeting = req.body;
+  console.log(meeting);
+  meetingModel.createMeeting(meeting);
 }

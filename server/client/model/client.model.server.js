@@ -3,6 +3,7 @@ var clientSchema = require('./client.schema.server');
 var Client = mongoose.model('Client', clientSchema);
 Client.findClients = findClients;
 Client.findClient = findClient;
+Client.findTrainers = findTrainers;
 module.exports = Client;
 
 function findClients() {
@@ -12,4 +13,9 @@ function findClients() {
 function findClient(clientName) {
   console.log("Client Name: " + clientName);
   return Client.find({"name": clientName})
+}
+
+function findTrainers() {
+  console.log("Finding Trainers");
+  return Client.find({"role": "trainer"});
 }
