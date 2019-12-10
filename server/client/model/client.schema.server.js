@@ -9,7 +9,8 @@ var clientSchema = new mongoose.Schema(
     "weight" : Number,
     "sport" : String,
     "role" : String,
-    "location" : String
+    "location" : String,
+    "bio": String
   }, {"collection": "clients"}
 )
 
