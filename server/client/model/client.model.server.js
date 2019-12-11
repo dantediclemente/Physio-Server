@@ -22,6 +22,5 @@ function findTrainers() {
 }
 
 function insertClient(client) {
-  console.log("Client To Insert: " + JSON.stringify(client));
   return Client.create(client);
 }

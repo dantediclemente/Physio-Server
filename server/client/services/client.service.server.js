@@ -55,5 +55,6 @@ function findTrainer(req, res) {
 
 function insertClient(req, res) {
   var client = req.body;
+  console.log(client);
   clientModel.insertClient(client);
 }

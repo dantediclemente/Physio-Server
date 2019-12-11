@@ -17,6 +17,5 @@ function findMeetingByClient(clientEmail) {
 }
 
 function createMeeting(meeting) {
-  console.log("Meeting: " + meeting);
   return Meeting.create(meeting);
 }
