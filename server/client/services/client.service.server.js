@@ -4,6 +4,7 @@ var clientModel = require('../model/client.model.server');
 app.get('/api/clients', findClients);
 app.get('/api/client/:clientName', findClient);
 app.get('/api/trainers', findTrainers);
+app.post('/api/client/insert', insertClient);
 
 function findClients(req, res) {
   clientModel.findClients().then(
@@ -50,4 +51,9 @@ function findTrainer(req, res) {
       }
     }
   )
+}
+
+function insertClient(req, res) {
+  var client = req.body;
+  clientModel.insertClient(client);
 }

@@ -4,6 +4,7 @@ var Client = mongoose.model('Client', clientSchema);
 Client.findClients = findClients;
 Client.findClient = findClient;
 Client.findTrainers = findTrainers;
+Client.insertClient = insertClient;
 module.exports = Client;
 
 function findClients() {
@@ -18,4 +19,9 @@ function findClient(clientName) {
 function findTrainers() {
   console.log("Finding Trainers");
   return Client.find({"role": "trainer"});
+}
+
+function insertClient(client) {
+  console.log("Client To Insert: " + JSON.stringify(client));
+  return Client.create(client);
 }
